@@ -5,10 +5,15 @@ mongoose.set("autoCreate", false);
 const bodyParser = require("body-parser");
 
 
+const candidatesRouter = require("./routes/candidates");
+const companiesRouter = require("./routes/companies");
+
+
+
 const app = express();
 app.use(bodyParser.json());
-app.get("/", (req,res) => {res.send("Hello world")})
-
+app.use("/candidates", authenticateToken, candidatesRouter);
+app.use("/companies", authenticateToken, companiesRouter);
 
 app.use((err, req, res, next) => {
   res.status(500);
