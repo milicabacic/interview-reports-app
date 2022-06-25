@@ -14,7 +14,7 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  if (token == null && request.method !== "GET")
+  if (token == null && req.method !== "GET")
     return res.status(401).json({ message: "No bearer token was supplied." });
 
   token &&
@@ -42,5 +42,5 @@ app.use((err, req, res, next) => {
 
 // // start a server
 mongoose.connect(process.env.DB_CONNECTION, () => {
-  app.listen(3000, () => console.log("Server listening on port: 3000"));
+  app.listen(4000, () => console.log("Server listening on port: 4000"));
 });
