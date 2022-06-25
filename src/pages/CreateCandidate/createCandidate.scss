@@ -1,0 +1,47 @@
+.candidate-container {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    .candidate-placeholder {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      width: 550px;
+      justify-content: center;
+      align-items: center;
+      border: 5px solid black;
+      border-radius: 10px;
+
+      h3 {
+        padding: 15px 0;
+        letter-spacing: 2px;
+      }
+      
+      input {
+        padding: 8px;
+        width: 350px;
+      }
+
+      button {
+        padding: 10px 40px;
+        background-color: black;
+        color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 1px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: gainsboro;
+          color: black;
+        }
+      }
+    }
+  }
+}

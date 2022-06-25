@@ -1,0 +1,57 @@
+.user-data{
+
+padding-bottom: 48px;
+
+display: flex;
+justify-content: center;
+
+    img{
+        height: 180px;
+        width: 180px;
+        margin: 35px;
+    }
+
+    .name-and-email, .dob-and-education {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 50px;
+
+        h3 {
+            padding: 25px 0;
+        }
+    }
+}
+
+.reports-table {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    tr{
+        display: flex;
+    }
+
+    td {
+        
+        border: 1px solid black;
+        min-width: 300px;
+    }
+
+}
+h2 {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.line {
+
+    display: flex;
+    justify-content: center;
+
+    hr{
+
+        border-top: 2px solid black;
+        width: 70vw;
+    }
+}
