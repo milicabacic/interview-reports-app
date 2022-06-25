@@ -1,0 +1,26 @@
+.card{
+
+    border: 1px solid black;
+    border-radius: 10px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 35px;
+    padding: 20px 40px;
+
+    img{
+        height: 65px;
+        width: 65px;
+        padding: 10px;
+    }
+
+    .username {
+        padding: 8px 0;
+    }
+
+    .usermail {
+        padding: 8px 0;
+        color: rgb(61, 61, 61);
+    }
+}

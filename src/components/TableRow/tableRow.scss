@@ -1,0 +1,33 @@
+.table-row {
+    display: flex;
+    margin: 5px 0;
+    
+    tr {
+
+        &:nth-child(2n-1) {
+            background-color: rgb(218, 218, 218);
+        }
+
+        display: flex;
+
+        td{
+
+            padding: 20px;
+            border: 1px solid black;
+            
+            img {
+                height: 15px;
+                width: 15px;
+            }
+        }
+        
+    }
+}
+
+h2{
+    padding: 35px;
+}
+
+#insight {
+    min-width: 50px;
+}

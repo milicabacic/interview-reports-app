@@ -1,0 +1,26 @@
+.report {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 10px auto;
+
+    &:nth-child(2n-1) {
+        background-color: rgb(129, 172, 205);
+    }
+    
+    div{
+        padding: 25px;
+        border: 1px solid black;
+        min-height: 75px;
+       
+    }
+    .report-icons {
+        display: flex;
+        img{
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+        }
+    }
+}

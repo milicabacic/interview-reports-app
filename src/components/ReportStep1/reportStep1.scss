@@ -1,0 +1,55 @@
+.step1 {
+    display: flex;
+    flex-direction: column;
+
+.candidates-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50vw;
+    
+    .candidate {
+        display: flex;
+        align-items: center;
+        width: 250px;
+        justify-content: center;
+        background-color: rgb(226, 226, 226);
+        margin: 10px 50px;
+        padding: 5px 0;
+        
+        .candidate-data {
+            display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5px 0;
+    }
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 25px;
+    }
+}
+
+}
+.next-button {
+    display: flex;
+    justify-content: end;
+    button {
+        background-color: rgb(129, 172, 205);
+        color: black;
+        padding: 10px;
+        width: 120px;
+        margin-right: 50px;
+        font-weight: 600;
+        margin-top: 25px;
+        border: 0.5px solid black;
+        border-radius: 20px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(159, 158, 158);
+            color: black;
+        }
+    }
+}
+}
