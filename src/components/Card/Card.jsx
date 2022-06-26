@@ -1,11 +1,17 @@
 import "./card.scss"
 import avatar from "../../images/UserAvatar.png"
+import { useNavigate } from "react-router-dom";
 
-const Card = () => {
-    return (<div className="card">
-        <img src={avatar} alt="user-avatar"></img>
-        <h2 className="username">User</h2>
-        <h4 className="usermail">user@example.com</h4>
+const Card = (props) => {
+
+    const {candidate} = props;
+
+    const navigate = useNavigate();
+
+    return (<div className="card" onClick={() => navigate(`/candidates/${candidate._id}`)}>
+        <img src={candidate.avatar} alt="user-avatar"></img>
+        <h2 className="username">{candidate.name}</h2>
+        <h4 className="usermail">{candidate.email}</h4>
     </div>);
 }
 

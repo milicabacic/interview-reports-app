@@ -4,6 +4,8 @@
       align-items: center;
       justify-content: center;
       height: 80vh;
+
+      
       .login-placeholder {
         display: flex;
         flex-direction: column;
@@ -13,6 +15,10 @@
         align-items: center;
         border: 5px solid black;
         border-radius: 10px;
+
+        .login-error {
+          color: red;
+        }
   
         h3 {
           padding: 15px 0;
