@@ -9,7 +9,7 @@ const candidates = [
     avatar: "https://avatars.githubusercontent.com/u/80677680?v=4",
     name: "Ana Marelja",
     birthday: new Date("1995-08-19"),
-    email: "anabanana@ludjak.com",
+    email: "anamarelja@gmail.com",
     education: "Prirodno matematicki fakultet u Beogradu",
   },
   {
@@ -30,13 +30,9 @@ const candidates = [
 const reports = [
   {
     candidate: {
-      avatar: "https://avatars.githubusercontent.com/u/76402236?v=4",
-      name: "Milica Bacic",
-      birthday: "1999-03-24T00:00:00.000+00:00",
-      email: "milicabacic99@gmail.com",
-      education: "Informacioni Sistemi i Tehnologije - FON",
+      email : "milicabacic99@gmail.com"
     },
-    company: {
+    company : {
       name: "BIT",
     },
     interviewDate: new Date("2022-05-01"),
@@ -46,14 +42,10 @@ const reports = [
   },
   {
     candidate: {
-      avatar: "https://avatars.githubusercontent.com/u/11763983?s=400&v=4",
-      name: "Mitar Skoro",
-      birthday: "1991-01-23T00:00:00.000+00:00",
-      email: "mitarskoro@gmail.com",
-      education: "Ekonomski fakultet u Subotici",
+      email: "mitarskoro@gmail.com"
     },
     company: {
-      name: "Endava",
+      name : "Endava",
     },
     interviewDate: new Date("2022-04-01"),
     phase: "HR",
@@ -77,12 +69,20 @@ async function up(session) {
     ],
     { session }
   );
-  await CompaniesModel.create(
+  const dbCompanies = await CompaniesModel.create(
     companies.map((name) => ({ name })),
     { session }
   );
-  await CandidatesModel.create(candidates, { session });
-  await ReportsModel.create(reports, { session });
+  const dbCandidates = await CandidatesModel.create(candidates, { session });
+  console.log(dbCandidates, dbCompanies)
+  const prefilledReports = reports.map(e=> {
+    const candidate  = dbCandidates.find(c => c.email === e.candidate.email)
+    const company = dbCompanies.find(cp => cp.name === e.company.name)
+    if(candidate) e.candidate = candidate;
+    if(company) e.company = company;
+    return e;
+  })
+  await ReportsModel.create(prefilledReports, { session });
 }
 
 /**

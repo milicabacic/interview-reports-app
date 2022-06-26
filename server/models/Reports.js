@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const schema = mongoose.Schema({
   candidate: {
+    _id : {
+      type: String,
+      required: true,
+    },
     avatar: {
       type: String,
     },
@@ -23,6 +27,10 @@ const schema = mongoose.Schema({
     },
   },
   company: {
+    _id : {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,

@@ -3,7 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 mongoose.set("autoCreate", false);
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const candidatesRouter = require("./routes/candidates");
 const companiesRouter = require("./routes/companies");
@@ -14,7 +15,9 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  if (token == null && req.method !== "GET")
+  console.log("token je: ", token);
+
+  if (!token && req.method !== "GET")
     return res.status(401).json({ message: "No bearer token was supplied." });
 
   token &&
@@ -23,12 +26,17 @@ function authenticateToken(req, res, next) {
         return res.status(403).json({ message: "Web token was malformed." });
 
       req.jwt = payload;
-      next();
     });
+    next();
 }
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  console.log("server hit", req.body);
+  next();
+});
 app.use("/candidates", authenticateToken, candidatesRouter);
 app.use("/companies", authenticateToken, companiesRouter);
 app.use("/reports", authenticateToken, reportsRouter);
