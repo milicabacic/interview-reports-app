@@ -11,7 +11,7 @@ const Login = () => {
   console.log(userToken, setUserToken);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("NE RADI TI OVO");
+  const [error, setError] = useState("");
 
   const loginUser = function () {
     login(email, password)

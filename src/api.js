@@ -9,8 +9,8 @@ export const api = function (url, configObj = {}) {
   };
   configObj.body && (cfg.body = JSON.stringify(configObj.body));
 
-  return fetch(fUrl, cfg).then((res) =>
-    res.status < 400 ? res.json() : Promise.reject(res.json())
+  return fetch(fUrl, cfg).then(async (res) =>
+    res.status < 400 ? await res.json() : Promise.reject(await res.json())
   );
 };
 

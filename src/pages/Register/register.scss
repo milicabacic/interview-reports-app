@@ -5,6 +5,11 @@
     justify-content: center;
     height: 80vh;
     .register-placeholder {
+
+      .register-error{
+        color: red;
+      }
+
       display: flex;
       flex-direction: column;
       height: 500px;

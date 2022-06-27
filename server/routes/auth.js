@@ -40,16 +40,16 @@ router.post("/register", async (req, res) => {
   console.log(email);
 
   if (!reg.test(email.trim()))
-    res.status(401).json({ message: "Email pattern is not valid." });
+    return res.status(400).json({ message: "Email pattern is not valid." });
 
   if (password.length <= 3)
-    res
-      .status(401)
+    return res
+      .status(400)
       .json({ message: "Password must contain at least 4 characters." });
 
   if (name.length <= 6)
-    res
-      .status(401)
+    return res
+      .status(400)
       .json({ message: "Name must contain at least 7 characters" });
 
   const existingUser = await UsersModel.findOne({ email });

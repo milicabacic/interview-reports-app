@@ -15,8 +15,6 @@ function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  console.log("token je: ", token);
-
   if (!token && req.method !== "GET")
     return res.status(401).json({ message: "No bearer token was supplied." });
 
@@ -33,10 +31,6 @@ function authenticateToken(req, res, next) {
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use((req, res, next) => {
-  console.log("server hit", req.body);
-  next();
-});
 app.use("/candidates", authenticateToken, candidatesRouter);
 app.use("/companies", authenticateToken, companiesRouter);
 app.use("/reports", authenticateToken, reportsRouter);

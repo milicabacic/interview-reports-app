@@ -8,7 +8,7 @@ const Register = () => {
   const [ name, setName ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
-  const [ error, setError ] = useState("NE RADI TI OVO");
+  const [ error, setError ] = useState("");
 
   const navigate = useNavigate()
 
@@ -22,12 +22,19 @@ const Register = () => {
       <Header></Header>
       <main className="main">
         <div className="register-placeholder">
+        {error && <p className="register-error">{error}</p>}
           <h3 className="name">Name:</h3>
-          <input type="text"></input>
+          <input type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}></input>
           <h3 className="email">Email:</h3>
-          <input type="text"></input>
+          <input type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}></input>
           <h3 className="password">Password:</h3>
-          <input type="password"></input>
+          <input type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}></input>
           <div className="Signup-button">
             <button onClick={registerUser}>Sing Up</button>
           </div>
