@@ -6,7 +6,6 @@ import Reports from "./pages/Reports/Reports";
 import CreateReport from "./pages/CreateReport/CreateReport";
 import { useState } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import ReactPortal from "./ReactPortal/ReactPortal";
 import Modal from "./components/Modal/Modal";
 import ReportStep1 from "./components/ReportStep1/ReportStep1";
 import ReportStep2 from "./components/ReportStep2/ReportStep2";
@@ -22,7 +21,7 @@ export const CompanyContext = createContext({});
 export const ReportContext = createContext({});
 
 const App = () => {
-  const [userToken, setUserToken] = useState(false);
+  const [userToken, setUserToken] = useState(true);
   const [candidates, setCandidates] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [reports, setReports] = useState([]);
@@ -115,7 +114,6 @@ const App = () => {
                   ></Route>
                 </Route>
               </Routes>
-              {/* <ReactPortal children={<Modal></Modal>}></ReactPortal> */}
             </ReportContext.Provider>
           </CompanyContext.Provider>
         </CandidateContext.Provider>

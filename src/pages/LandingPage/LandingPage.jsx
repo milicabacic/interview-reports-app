@@ -16,7 +16,7 @@ const LandingPage = () => {
       <h2 className="title">Candidates</h2>
       <div className="users">
         {candidates.map((e) => {
-          return <Card candidate={e} editable={!!userToken}></Card>;
+          return <Card key={e._id}candidate={e} editable={!!userToken}></Card>;
         })}
       </div>
     </div>

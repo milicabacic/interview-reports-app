@@ -1,14 +1,18 @@
 import "./modal.scss";
-import close from "../../images/cancelIcon.png";
+import close from "../../images/close.png";
+import { createPortal } from "react-dom";
 
-const Modal = () => {
+const Modal = ({children, open, onClose}) => {
 
-    return (
-        <div className="modal-background">
-        <img src={close}></img>
-            <div className="modal-content">This is modal</div>
-        </div>
-    )
-}
+    if(!open) return null;
+
+  return createPortal(
+    <div className="modal-background">
+      <img src={close} onClick = {onClose}></img>
+      <div className="modal-content">{children}</div>
+    </div>,
+    document.getElementById("modal-root")
+  );
+};
 
 export default Modal;
