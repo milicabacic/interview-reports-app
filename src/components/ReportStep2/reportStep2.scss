@@ -3,56 +3,53 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
+.companies-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 650px;
+    width: 650px;
+    overflow: auto;
+    
     .company{
-        min-width:50vw;
-        padding: 5px;
+        &.selected{
+            border: 3px solid #006eff;
+        }
+        
+        text-align: center;
+        font-weight: 500;
+        width: 200px;
+        height: 50px;
         border: 1px solid black;
-        margin-left: 25px;
+        border-radius: 5px;
+        background-color: rgb(241, 240, 240);
+        margin: 10px;
+        margin-right: 65px;
+        margin-left: 20px;
+        padding: 15px;
     }
+}
     
     .buttons {
-        width: 40vw;
         display: flex;
-        justify-content: space-between;
         
         .next-button, .back-button {
             padding: 10px 30px;
-            border-radius: 20px;
+    
             margin-top: 25px;
         }
         
-        .next-button {
-            background-color: rgb(129, 172, 205);
-            color: black;
-            padding: 10px;
-            width: 120px;
-            font-weight: 600;
-            margin-top: 25px;
-            border: 0.5px solid black;
-            border-radius: 20px;
-    
-            &:hover {
-                cursor: pointer;
-                background-color: rgb(159, 158, 158);
-                color: black;
-            }
-        }
         
         .back-button {
             background-color: white;
             color: black;
-            padding: 10px;
-            width: 120px;
-            font-weight: 600;
-            margin-top: 25px;
-            border: 0.5px solid black;
-            border-radius: 20px;
-
+            margin-right: 450px;
+            margin-left: 25px;
             &:hover {
                 cursor: pointer;
-                background-color: black;
-                color: white;
+                background-color: rgb(230, 230, 230);
+                color: black;
             }
         }
         }

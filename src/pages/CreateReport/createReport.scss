@@ -1,6 +1,22 @@
+.creating-report {
+
 .steps-wrapper {
     min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.title {
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: #006eff;
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.submit-error {
+    color: red;
+}
 }

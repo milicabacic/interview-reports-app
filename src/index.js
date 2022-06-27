@@ -10,6 +10,4 @@ root.render(
   <BrowserRouter>
     <App></App>
   </BrowserRouter>
-
-//  <Modal></Modal>
 );

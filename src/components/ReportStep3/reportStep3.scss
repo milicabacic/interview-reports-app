@@ -18,14 +18,25 @@ margin-left: 100px;
         padding: 15px 0;
         font-size: 18px;
        letter-spacing: 1px;
+       font-weight: 500;
     }
     input, select{
         width: 150px;
     }
 }
 
+input, select {
+    padding: 2px;
+    font-size: 14px;
+    font-weight: 400;
+}
 
 .notes {
+    color: rgb(77, 77, 77);
+        padding: 15px 0;
+        font-size: 18px;
+       letter-spacing: 1px;
+       font-weight: 500;
     textarea {
         width: 650px;
         margin: 35px 0;
@@ -49,41 +60,23 @@ margin-left: 100px;
 .buttons {
 
     display: flex;
-    width: 40vw;
     justify-content: space-between;
    
 
     .submit-button {
-        background-color: rgb(129, 172, 205);
-        color: black;
-        padding: 10px;
-        width: 120px;
-        font-weight: 600;
         margin-top: 25px;
-        border: 0.5px solid black;
-        border-radius: 20px;
-
-        &:hover {
-            cursor: pointer;
-            background-color: rgb(159, 158, 158);
-            color: black;
-        }
+        padding-left: 40px;
     }
     
     .back-button {
         background-color: white;
         color: black;
-        padding: 10px;
-        width: 120px;
-        font-weight: 600;
-        margin-top: 25px;
-        border: 0.5px solid black;
-        border-radius: 20px;
-        
+        margin-right: 450px;
+        margin-left: 25px;
         &:hover {
             cursor: pointer;
-            background-color: black;
-            color: white;
+            background-color: rgb(230, 230, 230);
+            color: black;
         }
     }
 }
