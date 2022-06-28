@@ -15,7 +15,8 @@ const Login = () => {
 
   const loginUser = function () {
     login(email, password)
-      .then((data) => setUserToken(data.token))
+      .then((data) => {setUserToken(data.token)
+      localStorage.setItem("token", data.token)})
       .catch(({ message }) => setError(message));
   };
 
@@ -36,7 +37,7 @@ const Login = () => {
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            type="text"
+            type="password"
           ></input>
           <div className="login-button">
             <button onClick={loginUser}>Login</button>

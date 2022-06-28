@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./reportStep3.scss";
 import { postReport } from "../../api";
 import { NewReportContext } from "../../pages/CreateReport/CreateReport";
 
 const ReportStep3 = () => {
 
-  const {selectedDate, setSelectedDate, selectedPhase, setSelectedPhase, selectedStatus, setSelectedStatus, selectedNote, setSelectedNote, submitReport} = useContext(NewReportContext);
+  const {selectedDate, setSelectedDate, selectedPhase, setSelectedPhase, selectedStatus, setSelectedStatus, selectedNote, setSelectedNote, addReport, updateReport} = useContext(NewReportContext);
 
+  const {id} = useParams();
 
 let navigate = useNavigate();
 
@@ -23,17 +24,17 @@ let navigate = useNavigate();
         <p>Phase:</p>
         <select className="phase-select"
         value={selectedPhase} onChange={(e) => setSelectedPhase(e.target.value)}>
-          <option>CV</option>
-          <option>HR</option>
-          <option>Technical</option>
-          <option>Final</option>
+          <option value="CV">CV</option>
+          <option value="HR">HR</option>
+          <option value="TECH">Technical</option>
+          <option value="FINAL">Final</option>
         </select>
       </div>
       <div className="status">
         <p>Status:</p>
         <select className="status-select" value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
-          <option>Passed</option>
-          <option>Declined</option>
+          <option value="Passed">Passed</option>
+          <option value="Declined">Declined</option>
         </select>
       </div>
       </div>
@@ -48,8 +49,8 @@ let navigate = useNavigate();
 
       <div className="buttons">
 
-      <button className="back-button" onClick={() => navigate("/new-report/step/2")}>BACK</button>
-      <button className="submit-button" onClick={submitReport}>SUBMIT</button>
+      <button className="back-button" onClick={() => navigate("../step/2")}>BACK</button>
+      <button className="submit-button" onClick={id? updateReport : addReport}>SUBMIT</button>
       </div>
       </div>
       

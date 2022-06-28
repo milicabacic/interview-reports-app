@@ -3,11 +3,23 @@ import avatar from "../../images/UserAvatar.png";
 import close from "../../images/close.png";
 import edit from "../../images/edit.png";
 import { useNavigate } from "react-router-dom";
+import { deleteCandidate } from "../../api";
+import { useContext } from "react";
+import { CandidateContext, UserContext } from "../../App";
 
 const Card = (props) => {
   const { candidate, editable } = props;
+  const { userToken } = useContext(UserContext);
+  const { candidates, setCandidates } = useContext(CandidateContext);
 
-  const navigate = useNavigate();
+  let navigate = useNavigate();
+
+  const deleteSelectedCandidate = function (e) {
+    e.stopPropagation();
+    deleteCandidate(candidate._id, userToken).then(() =>
+      setCandidates(candidates.filter((e) => e._id !== candidate._id))
+    );
+  };
 
   return (
     <div
@@ -16,10 +28,23 @@ const Card = (props) => {
     >
       <div className="icons">
         {editable ? (
-          <img className="edit-img" src={edit} alt="edit-image"></img>
+          <img
+            className="edit-img"
+            src={edit}
+            alt="edit-image"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/edit-candidate/${candidate._id}`);
+            }}
+          ></img>
         ) : null}
         {editable ? (
-          <img className="close-img" src={close} alt="edit-image"></img>
+          <img
+            className="close-img"
+            src={close}
+            alt="edit-image"
+            onClick={deleteSelectedCandidate}
+          ></img>
         ) : null}
       </div>
 

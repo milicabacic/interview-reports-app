@@ -4,14 +4,26 @@ import edit from "../../images/edit.png";
 import "./report.scss";
 import moment from "moment";
 import Modal from "../Modal/Modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { deleteReport } from "../../api";
+import { ReportContext, UserContext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const Report = (props) => {
 
+  let navigate = useNavigate()
+
   const {report, editable} = props;
   const {candidate, company} = report;
+  const {userToken} = useContext(UserContext);
+
+  const {reports, setReports} = useContext(ReportContext);
   
   const [open, setOpen] = useState(false);
+
+  const deleteSelectedReport = function() {
+    deleteReport(report._id, userToken).then(() => setReports(reports.filter(e => e._id!==report._id)));
+  }
 
   return (
     <>
@@ -35,8 +47,8 @@ const Report = (props) => {
           </div>
           <div id="insight">
             <img src={insight} onClick={() => setOpen(true)}></img>
-            {editable? <img src={edit} alt="edit-image"></img> : null}
-            {editable? <img src={bin} alt="bin-image"></img> : null}
+            {editable? <img src={edit} alt="edit-image" onClick={navigate(`/edit-report/${report._id}`)}></img> : null}
+            {editable? <img src={bin} alt="bin-image" onClick={deleteSelectedReport}></img> : null}
           </div>
         </div>
       </div>
@@ -62,7 +74,7 @@ const Report = (props) => {
           </div>
           <div className="column2">
             <div className="note">Note:</div>
-            <div className="note-data">{candidate.note}</div>
+            <div className="note-data">{report.note}</div>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Reports = () => {
     <div className="reports">
       <Header></Header>
       <h2 className="title">Reports</h2>
-      {reports.map(e => <Report report = {e} editable = {!!userToken}></Report>)}
+      {reports.slice().reverse().map(e => <Report report = {e} editable = {!!userToken}></Report>)}
     </div>
   );
 };

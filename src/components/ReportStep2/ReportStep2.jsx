@@ -20,8 +20,8 @@ return <div className="companies-container">
     </div>
     <div className="buttons">
 
-    <button className="back-button" onClick={() => navigate("/new-report/step/1")}>BACK</button>
-    <button className="next-button" onClick={() => navigate("/new-report/step/3")}>NEXT</button>
+    <button className="back-button" onClick={() => navigate("../step/1")}>BACK</button>
+    <button className="next-button" onClick={() => navigate("../step/3")}>NEXT</button>
     </div>
 </div>
 

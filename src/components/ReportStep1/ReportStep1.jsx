@@ -30,7 +30,7 @@ const ReportStep1 = () => {
 
 
         <div className="next-button">
-            <button onClick={()=> navigate("/new-report/step/2")}>NEXT</button>
+            <button onClick={()=> navigate("../step/2")}>NEXT</button>
         </div>
     </div>
 }
