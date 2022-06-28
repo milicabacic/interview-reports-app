@@ -7,3 +7,17 @@
     color: white;
 
 }
+
+.search{
+
+  position: absolute;
+  top:200px;
+  right: 100px;
+  
+  input{
+      width: 200px;
+      height: 25px;
+      border-radius: 5px;
+      padding-left: 2px;
+  }
+}

@@ -6,10 +6,13 @@ import "./createCandidate.scss";
 import { CandidateContext, UserContext } from "../../App";
 import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
+import userAvatar from "../../images/UserAvatar.png";
 
 const CreateCandidate = () => {
   const { userToken } = useContext(UserContext);
   const { candidates, setCandidates } = useContext(CandidateContext);
+
+  const [githubUsers, setGithubUsers] = useState([]);
 
   let navigate = useNavigate();
   const { id } = useParams();
@@ -84,6 +87,16 @@ const CreateCandidate = () => {
       .catch(({ message }) => setError(message));
   };
 
+  const findUsers = function (e) {
+    if (e.keyCode === 13) {
+      const searchingValue = e.target.value;
+
+      fetch(`https://api.github.com/search/users?q=${searchingValue}`)
+        .then((res) => res.json())
+        .then((data) => setGithubUsers(data.items));
+    }
+  };
+
   return (
     <>
       <div className="candidate-container">
@@ -104,7 +117,7 @@ const CreateCandidate = () => {
               onChange={(e) => setSelectedEmail(e.target.value)}
             ></input>
 
-            <h3 className="avatar">Avatar URL:</h3>
+            <h3 className="avatar">Avatar URL: <span onClick={()=> setOpen(true)}>search github</span></h3>
             <input
               type="text"
               value={selectedAvatar}
@@ -133,8 +146,22 @@ const CreateCandidate = () => {
           </div>
         </main>
       </div>
-      <Modal>
-        
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="github-users">
+          <input
+            type="search"
+            placeholder="Search github by username"
+            onKeyDown={findUsers}
+          ></input>
+          <div className="users-wrapper">
+            {githubUsers.map((e) => (
+              <div className="user-placeholder">
+                <img src={e.avatar_url} alt="img-avatar"></img>
+                <p>{e.login}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </Modal>
     </>
   );

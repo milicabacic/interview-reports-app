@@ -47,7 +47,7 @@ const Report = (props) => {
           </div>
           <div id="insight">
             <img src={insight} onClick={() => setOpen(true)}></img>
-            {editable? <img src={edit} alt="edit-image" onClick={navigate(`/edit-report/${report._id}`)}></img> : null}
+            {editable? <img src={edit} alt="edit-image" onClick={()=>navigate(`/edit-report/${report._id}`)}></img> : null}
             {editable? <img src={bin} alt="bin-image" onClick={deleteSelectedReport}></img> : null}
           </div>
         </div>

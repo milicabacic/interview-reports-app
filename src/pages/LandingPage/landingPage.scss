@@ -1,13 +1,32 @@
 .landing-page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
 h2{
     margin-top: 0;
+    margin-bottom: 50px;
 }
-.users{
+.candidates-wrapper {
     display: flex;
 }
 .title {
     padding-top: 25px;
     padding-left: 25px;
     background-color: #006eff;
+}
+
+.search{
+
+    position: absolute;
+    top:200px;
+    right: 100px;
+    
+    input{
+        width: 200px;
+        height: 25px;
+        border-radius: 5px;
+        padding-left: 2px;
+    }
 }
 }

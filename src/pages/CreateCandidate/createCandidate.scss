@@ -17,6 +17,14 @@
       h3 {
         padding: 15px 0;
         letter-spacing: 2px;
+
+        span {
+          color: #006eff;
+          font-size: 14px;
+          text-decoration: underline;
+          letter-spacing: 0;
+          font-weight: 400;
+        }
       }
       
       input {
@@ -40,5 +48,44 @@
             }
           }
     }
+  }
+}
+
+.github-users{
+
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .users-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+  }
+  .user-placeholder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+
+  img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  p{
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  input{
+    width: 250px;
+    height: 25px;
+    margin-bottom: 50px;
   }
 }

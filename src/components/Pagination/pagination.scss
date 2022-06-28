@@ -1,0 +1,44 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 2px;
+    width: 30px;
+    height: 50px;
+    border: none;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif, Geneva, Tahoma, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    &.activePage {
+      background-color: #006eff;
+      font-weight: bolder;
+      &:hover {
+        border: 1px solid black;
+      }
+    }
+
+    &.inactivePage,
+    &.nextPage,
+    &.previousPage {
+      background-color: white;
+      color: rgb(83, 92, 92);
+      &:hover {
+        background-color: rgb(240, 238, 238);
+        border: 1px solid black;
+      }
+    }
+
+    &.nextPage,
+    &.previousPage {
+      font-weight: 550;
+      font-size: x-large;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
