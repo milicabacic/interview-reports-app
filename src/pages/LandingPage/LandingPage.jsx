@@ -13,6 +13,15 @@ const LandingPage = () => {
   const [page, setPage] = useState(1);
   const [searchingValue, setSearchingValue] = useState("");
 
+  const previousPage = function() {
+    if(page!==1)
+    setPage(page-1)
+  }
+  const nextPage = function() {
+    if(page!==Math.ceil(candidates.length/4))
+    setPage(page+1)
+  }
+
   return (
     <div className="landing-page">
       <Header></Header>
@@ -26,7 +35,7 @@ const LandingPage = () => {
         <div className="candidates-wrapper">
 
         {candidates
-          .filter((e, index) => index >= (page - 1) * 15 && index < page * 15).filter(e=> e.name.includes(searchingValue))
+          .filter((e, index) => index >= (page - 1) * 4 && index < page * 4).filter(e=> e.name.includes(searchingValue))
           .reverse()
           .map((e) => {
             return (
@@ -34,7 +43,7 @@ const LandingPage = () => {
               );
             })}
             </div>
-            <Pagination page={page} setPage={setPage}></Pagination>
+            <Pagination page={page} setPage={setPage} previousPage={previousPage} nextPage={nextPage}></Pagination>
       </div>
 
       

@@ -7,7 +7,7 @@ const Pagination = (props) => {
 
     const {candidates} = useContext(CandidateContext);
 
-    const numberOfPages = Math.ceil(candidates.length/15);
+    const numberOfPages = Math.ceil(candidates.length/4);
 
     let pageArray = [];
 

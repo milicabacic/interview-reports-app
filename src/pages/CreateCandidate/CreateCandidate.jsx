@@ -156,7 +156,8 @@ const CreateCandidate = () => {
           <div className="users-wrapper">
             {githubUsers.map((e) => (
               <div className="user-placeholder">
-                <img src={e.avatar_url} alt="img-avatar"></img>
+                <img src={e.avatar_url} alt="img-avatar" onClick={() => {setSelectedAvatar(e.avatar_url)
+                  setOpen(false)}}></img>
                 <p>{e.login}</p>
               </div>
             ))}
