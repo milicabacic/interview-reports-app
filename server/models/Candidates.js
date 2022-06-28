@@ -7,6 +7,7 @@ const schema = mongoose.Schema({
   name: {
     type: String,
     required: true,
+    minLength: 3,
   },
   birthday: {
     type: Date,
@@ -19,6 +20,7 @@ const schema = mongoose.Schema({
   education: {
     type: String,
     required: true,
+    minLength: 3,
   }
 });
 

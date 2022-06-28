@@ -35,10 +35,6 @@ router.post("/register", async (req, res) => {
 
   var reg = /[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9]+\.[a-zA-Z]+/;
 
-  // handles punycode, etc using browser's own maintained implementation
-
-  console.log(email);
-
   if (!reg.test(email.trim()))
     return res.status(400).json({ message: "Email pattern is not valid." });
 
