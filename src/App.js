@@ -21,7 +21,7 @@ export const CompanyContext = createContext({});
 export const ReportContext = createContext({});
 
 const App = () => {
-  const [userToken, setUserToken] = useState(true);
+  const [userToken, setUserToken] = useState(localStorage.getItem("token"));
   const [candidates, setCandidates] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [reports, setReports] = useState([]);
@@ -84,7 +84,36 @@ const App = () => {
                   path="/candidates/:id"
                   element={<SingleCandidate></SingleCandidate>}
                 ></Route>
+                <Route path="/edit-candidate/:id" element={<CreateCandidate></CreateCandidate>}></Route>
                 <Route path="/reports" element={<Reports></Reports>}></Route>
+                <Route
+                  path="/edit-report/:id"
+                  element={
+                    userToken ? (
+                      <CreateReport />
+                    ) : (
+                      <Navigate to="/reports"></Navigate>
+                    )
+                  }
+                >
+                  <Route
+                    path="/edit-report/:id"
+                    element={<Navigate to="step/1"></Navigate>}
+                  ></Route>
+
+                  <Route
+                    path="step/1"
+                    element={<ReportStep1></ReportStep1>}
+                  ></Route>
+                  <Route
+                    path="step/2"
+                    element={<ReportStep2></ReportStep2>}
+                  ></Route>
+                  <Route
+                    path="step/3"
+                    element={<ReportStep3></ReportStep3>}
+                  ></Route>
+                </Route>
                 <Route
                   path="/new-report"
                   element={

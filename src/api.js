@@ -46,32 +46,42 @@ export const postReport = function (
   interviewDate,
   phase,
   status,
-  note
+  note, 
+  token
 ) {
   return api("/reports", {
     method: "POST",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
     body: { candidate, company, interviewDate, phase, status, note },
   });
 };
 
-export const patchreport = function (
+export const patchReport = function (
   id,
   candidate,
   company,
   interviewDate,
   phase,
   status,
-  note
+  note, token
 ) {
   return api(`/reports/${id}`, {
     method: "PATCH",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
     body: { candidate, company, interviewDate, phase, status, note },
   });
 };
 
-export const deleteReport = function (id) {
+export const deleteReport = function (id, token) {
   return api(`/reports/${id}`, {
     method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
   });
 };
 
@@ -80,32 +90,41 @@ export const postCandidate = function (
   name,
   birthday,
   email,
-  education
+  education, 
+  token
 ) {
   return api("/candidates", {
     method: "POST",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
     body: { avatar, name, birthday, email, education },
   });
 };
 
 export const patchCandidate = function (
-  id,
-  candidate,
-  company,
-  interviewDate,
-  phase,
-  status,
-  note
+  id, avatar,
+  name,
+  birthday,
+  email,
+  education, 
+  token
 ) {
   return api(`/candidates/${id}`, {
     method: "PATCH",
-    body: { candidate, company, interviewDate, phase, status, note },
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
+    body: { avatar, name, birthday, email, education },
   });
 };
 
-export const deleteCandidate = function (id) {
-  return api(`/candidate/${id}`, {
+export const deleteCandidate = function (id, token) {
+  return api(`/candidates/${id}`, {
     method: "DELETE",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    },
   });
 };
 
