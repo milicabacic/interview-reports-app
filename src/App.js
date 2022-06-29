@@ -84,7 +84,7 @@ const App = () => {
                   path="/candidates/:id"
                   element={<SingleCandidate></SingleCandidate>}
                 ></Route>
-                <Route path="/edit-candidate/:id" element={<CreateCandidate></CreateCandidate>}></Route>
+                <Route path="/edit-candidate/:id" element={userToken? <CreateCandidate></CreateCandidate> : <Login></Login>}></Route>
                 <Route path="/reports" element={<Reports></Reports>}></Route>
                 <Route
                   path="/edit-report/:id"
